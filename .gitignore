@@ -1,0 +1,5 @@
+build
+.vscode
+bitbake-builds/
+sstate-cache/
+downloads/
