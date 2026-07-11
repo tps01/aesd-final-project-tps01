@@ -1,6 +1,7 @@
 [submodule "bitbake"]
 	path = bitbake
 	url = https://git.openembedded.org/bitbake
+	branch = wrynose
 [submodule "meta-raspberrypi"]
 	path = meta-raspberrypi
 	url = https://github.com/agherzan/meta-raspberrypi.git
