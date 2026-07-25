@@ -62,6 +62,106 @@ else
 	echo "${CONFLINE} already exists in the local.conf file"
 fi
 
+CONFLINE="EXTRA_IMAGE_FEATURES:append = \" package-management\""
+cat conf/local.conf | grep "${CONFLINE}" > /dev/null
+local_conf_info=$?
+
+if [ $local_conf_info -ne 0 ];then
+	echo "Append ${CONFLINE} in the local.conf file"
+	echo ${CONFLINE} >> conf/local.conf
+	
+else
+	echo "${CONFLINE} already exists in the local.conf file"
+fi
+
+CONFLINE="PACKAGE_CLASSES = \"package_deb\""
+cat conf/local.conf | grep "${CONFLINE}" > /dev/null
+local_conf_info=$?
+
+if [ $local_conf_info -ne 0 ];then
+	echo "Append ${CONFLINE} in the local.conf file"
+	echo ${CONFLINE} >> conf/local.conf
+	
+else
+	echo "${CONFLINE} already exists in the local.conf file"
+fi
+
+CONFLINE="IMAGE_INSTALL:append = \" libgpiod\""
+cat conf/local.conf | grep "${CONFLINE}" > /dev/null
+local_conf_info=$?
+
+if [ $local_conf_info -ne 0 ];then
+	echo "Append ${CONFLINE} in the local.conf file"
+	echo ${CONFLINE} >> conf/local.conf
+	
+else
+	echo "${CONFLINE} already exists in the local.conf file"
+fi
+
+CONFLINE="IMAGE_INSTALL:append = \" libgpiod-tools\""
+cat conf/local.conf | grep "${CONFLINE}" > /dev/null
+local_conf_info=$?
+
+if [ $local_conf_info -ne 0 ];then
+	echo "Append ${CONFLINE} in the local.conf file"
+	echo ${CONFLINE} >> conf/local.conf
+	
+else
+	echo "${CONFLINE} already exists in the local.conf file"
+fi
+
+CONFLINE="IMAGE_INSTALL:append = \" iperf3\""
+cat conf/local.conf | grep "${CONFLINE}" > /dev/null
+local_conf_info=$?
+
+if [ $local_conf_info -ne 0 ];then
+	echo "Append ${CONFLINE} in the local.conf file"
+	echo ${CONFLINE} >> conf/local.conf
+	
+else
+	echo "${CONFLINE} already exists in the local.conf file"
+fi
+
+bitbake-layers show-layers | grep "meta-oe" > /dev/null
+layer_info=$?
+
+if [ $layer_info -ne 0 ];then
+	echo "Adding meta-oe layer"
+	bitbake-layers add-layer ../../../meta-openembedded/meta-oe
+else
+	echo "meta-oe layer already exists"
+fi 
+
+bitbake-layers show-layers | grep "meta-python" > /dev/null
+layer_info=$?
+
+if [ $layer_info -ne 0 ];then
+	echo "Adding meta-python layer"
+	bitbake-layers add-layer ../../../meta-openembedded/meta-python
+else
+	echo "meta-python layer already exists"
+fi 
+
+bitbake-layers show-layers | grep "meta-multimedia" > /dev/null
+layer_info=$?
+
+if [ $layer_info -ne 0 ];then
+	echo "Adding meta-multimedia layer"
+	bitbake-layers add-layer ../../../meta-openembedded/meta-multimedia
+else
+	echo "meta-multimedia layer already exists"
+fi 
+
+bitbake-layers show-layers | grep "meta-networking" > /dev/null
+layer_info=$?
+
+if [ $layer_info -ne 0 ];then
+	echo "Adding meta-networking layer"
+	bitbake-layers add-layer ../../../meta-openembedded/meta-networking
+else
+	echo "meta-networking layer already exists"
+fi 
+
 bitbake-layers show-layers | grep "meta-raspberrybi" > /dev/null
 layer_info=$?
 

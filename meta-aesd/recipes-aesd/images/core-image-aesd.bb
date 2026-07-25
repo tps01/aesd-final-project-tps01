@@ -10,6 +10,7 @@ PASSWD = "\$5\$2WoxjAdaC2\$l4aj6Is.EWkD72Vt.byhM5qRtF9HcCM/5YpbxpmvNB5"
 EXTRA_USERS_PARAMS = "usermod -p '${PASSWD}' root;"
 
 setup_interfaces () {
-    cp ../files/interfaces ${IMAGE_ROOTFS}/etc/network/interfaces
+    pwd
+    cp ${THISDIR}/../files/interfaces ${IMAGE_ROOTFS}/etc/network/interfaces
 }
 ROOTFS_POSTPROCESS_COMMAND += "setup_interfaces; "
