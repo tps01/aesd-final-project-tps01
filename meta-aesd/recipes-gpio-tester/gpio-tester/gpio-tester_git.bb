@@ -6,7 +6,7 @@ SRC_URI = "git://git@github.com/tps01/aesd-final-project-application-tps01.git;p
            file://run-gpio-test.sh"
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "3a7b343adf48c9f81ea2c5688b03b0dffcc3b3e1"
+SRCREV = "0cdfbdf87c49406d7618e83aebae635356cf708e"
 
 S = "${UNPACKDIR}"
 

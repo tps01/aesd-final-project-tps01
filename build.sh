@@ -8,9 +8,10 @@ git submodule update
 
 source bitbake-builds/poky-wrynose/build/init-build-env
 bitbake-config-build list-fragments
-# bitbake-config-build enable-fragment core/yocto/root-login-with-empty-password
-bitbake-config-build enable-fragment core/yocto/sstate-mirror-cdn
+bitbake-config-build enable-fragment core/yocto/root-login-with-empty-password
+#bitbake-config-build enable-fragment core/yocto/sstate-mirror-cdn
 bitbake-config-build disable-fragment machine/genericarm64
+bitbake-config-build disable-fragment core/yocto/sstate-mirror-cdn
 
 CONFLINE="MACHINE = \"raspberrypi3-64\""
 cat conf/local.conf | grep "${CONFLINE}" > /dev/null
